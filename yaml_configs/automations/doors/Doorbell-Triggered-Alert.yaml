@@ -1,4 +1,4 @@
-#automation Doorbell-Triggered-Alert:
+#tautomation Doorbell-Triggered-Alert:
   alias: Doorbell Triggered
   trigger:
     platform: state
