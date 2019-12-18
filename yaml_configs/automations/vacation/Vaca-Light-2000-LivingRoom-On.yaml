@@ -1,0 +1,18 @@
+  alias: Vaca-Light-2000-LivingRoom-On
+#  initial_state: 'off'
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living Room"
+        scene_name: "Bright"
+

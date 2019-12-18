@@ -1,0 +1,12 @@
+  alias: Fan-Molly-0730-Off
+  trigger:
+    platform: time
+    at: '07:30:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.kill_fans
+    state: 'on'
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.molly_fan_off

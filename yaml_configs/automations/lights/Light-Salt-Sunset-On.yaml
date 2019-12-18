@@ -1,0 +1,9 @@
+  alias: Light-Salt-Sunset-On
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '+02:00:00'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.68102802dc4f22f09c33

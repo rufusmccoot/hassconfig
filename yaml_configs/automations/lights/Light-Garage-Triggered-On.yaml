@@ -1,0 +1,25 @@
+  alias: Light-Garage-Triggered-On
+  trigger:
+    platform: state
+    entity_id: binary_sensor.zha_0f3ae4f9_1_1280
+    to: 'on'
+#  condition:
+##       Only turn on light if within 30 minutes of sunset or later
+##       Example: If sun sets at 5:00p, enable the light at 4:30p
+##       **OR** if it's pretty cloudy
+#    condition: or
+#    conditions:
+#      - condition: sun
+#        after: sunset
+#        after_offset: "-00:30:00"
+#      - condition: numeric_state
+#        entity_id: sensor.dark_sky_cloud_coverage
+#        above: 89
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.garage_room
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Garage Room"
+        scene_name: "Bright"

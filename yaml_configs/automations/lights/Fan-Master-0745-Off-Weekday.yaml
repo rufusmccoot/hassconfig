@@ -1,0 +1,21 @@
+  alias: Fan-Master-0745-Off-Weekday
+  trigger:
+    platform: time
+    at: '07:45:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.kill_fans
+        state: 'on'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.master_fan_off

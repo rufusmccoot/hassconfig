@@ -1,0 +1,79 @@
+  alias: Garage-Triggered30Min-Alert
+  trigger:
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 30
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 60
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 90
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 120
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 180
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 210
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+      for:
+        minutes: 240
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: media_player.google_homie
+        state: 'off'
+      - condition: state
+        entity_id: media_player.google_homie
+        state: 'idle'
+  action:
+    - service: media_player.play_media
+      entity_id:
+        - media_player.google_homie
+        - media_player.basement_mini
+        - media_player.bedroom_mini
+      data:
+#        media_content_id: https://furburger.duckdns.org:8123/local/shiphorn.mp3
+        media_content_id: http://10.12.27.83:8123/local/shiphorn.mp3
+        media_content_type: music
+#    - service: tts.google_say
+#      entity_id: media_player.google_homie
+#      data:
+#        message: 'The garage door has been open for at least 30 minutes.'
+#    - service: tts.google_say
+#      entity_id: media_player.basement_mini
+#      data:
+#        message: 'The garage door has been open for at least 30 minutes.'
+#    - service: tts.google_say
+#      entity_id: media_player.bedroom_mini
+#      data:
+#        message: 'The garage door has been open for at least 30 minutes.'
+#    - service: notify.join_endpoints
+#      data:
+#        title: "Home Assistant"
+#        message: "Garage door has been open for at least 30 minutes"
+#        data: {"smallicon":"https://i.imgur.com/G6ekKZI.png","icon":"https://goo.gl/xeetdy"}
+    - service: notify.pushbullet_endpoints
+      data:
+        title: "Home Assistant"
+        message: "Garage door has been open for at least 30 minutes"
+        data: 
+          url: "https://alerts.weather.gov/cap/wwaatmget.php?x=IAC113&y=1"

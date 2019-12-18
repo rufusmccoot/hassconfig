@@ -1,0 +1,10 @@
+    cover.garage_door:
+      friendly_name: Controls
+      #entity_picture: /local/honda.gif
+      #icon: mdi:garage
+
+    sensor.garage_status:
+      friendly_name: Door Status
+      #entity_picture: /local/honda.gif
+      #icon: mdi:garage
+

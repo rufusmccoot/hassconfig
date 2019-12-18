@@ -1,0 +1,14 @@
+  alias: GoogleHome-2200-VolumeMedium
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.google_homie
+        volume_level: "0.5"
+#    - service: tts.google_say
+#      entity_id: media_player.google_homie
+#      data_template:
+#        message: 'Hi guys. This is a test.'

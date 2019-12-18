@@ -1,0 +1,13 @@
+  alias: Light-Molly-2000-Dim
+  trigger:
+    platform: time
+    at: '20:00:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.molly
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Molly Room"
+        scene_name: "Dim"
+

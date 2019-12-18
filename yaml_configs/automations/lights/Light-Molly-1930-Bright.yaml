@@ -1,0 +1,13 @@
+  alias: Light-Molly-1930-Bright
+  trigger:
+    platform: time
+    at: '19:30:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.molly
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Molly Room"
+        scene_name: "Bright"
+

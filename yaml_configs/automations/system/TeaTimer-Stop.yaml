@@ -1,0 +1,16 @@
+  alias: Tea Timer Stop
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.tea_time
+  action:
+    - service: media_player.play_media
+      entity_id: media_player.google_homie
+      data:
+#        media_content_id: https://furburger.duckdns.org:8123/local/teatime.mp3
+        media_content_id: http://10.12.27.83:8123/local/teatime.mp3
+        media_content_type: music
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.tea_time

@@ -1,0 +1,12 @@
+  alias: Light-Outside-2200-Off
+  trigger:
+    platform: time
+    at: '22:00:00'
+  condition:
+    - condition: state
+      entity_id: sensor.garage_car_present
+      state: 'Yes'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.frontlights_switch

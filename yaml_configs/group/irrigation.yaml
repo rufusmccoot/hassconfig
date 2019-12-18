@@ -1,0 +1,10 @@
+irrigation:
+  name: Irrigation
+  entities:
+    - weblink.rainmachine
+    - switch.zone_zone_1
+    - switch.zone_zone_2
+    - switch.zone_zone_3
+    - switch.zone_zone_4
+    - switch.zone_zone_5
+    - switch.program_idk_wtf_im_doing

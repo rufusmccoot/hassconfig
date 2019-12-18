@@ -1,0 +1,17 @@
+#When the interior garage light turns on for any reason, shut it after 1 minute.
+#This used to be "when the inside garage door closed for a minute, shut the light but
+#it kind of sucked because if someone flicked the switch on, then it would stay on forever.
+  alias: Light-Garage-Triggered-Off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: light.garage_room
+    to: 'on'
+#    entity_id: binary_sensor.zha_0f3ae4f9_1_1280
+#    to: 'off'
+    for:
+      minutes: 2
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.garage_room

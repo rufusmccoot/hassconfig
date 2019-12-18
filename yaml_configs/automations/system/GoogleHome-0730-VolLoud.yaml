@@ -1,0 +1,10 @@
+  alias: GoogleHome-0730-VolumeLoud
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '07:30:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.google_homie
+        volume_level: "0.75"

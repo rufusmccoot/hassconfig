@@ -1,0 +1,13 @@
+  alias: Vaca-Light-2345-Bedroom-Off
+#  initial_state: 'off'
+  trigger:
+    platform: time
+    at: '23:45:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom

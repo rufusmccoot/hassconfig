@@ -1,0 +1,23 @@
+  alias: 'ChristmasLightsDining-2100-Off'
+#  initial_state: 'off'
+  trigger:
+    platform: time
+    at: '21:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+          - sun
+      - condition: state
+        entity_id: input_boolean.holiday_mode
+        state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.32206507c44f33851def

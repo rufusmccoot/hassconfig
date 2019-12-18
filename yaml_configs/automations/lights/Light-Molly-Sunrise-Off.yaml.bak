@@ -1,0 +1,8 @@
+  alias: Light-Molly-Sunrise-Off
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.molly

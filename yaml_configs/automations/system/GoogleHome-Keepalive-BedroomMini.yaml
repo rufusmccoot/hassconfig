@@ -1,0 +1,22 @@
+  alias: GoogleHome-Keepalive-BedroomMini
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: '/2'
+    seconds: 00
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: media_player.bedroom_mini
+        state: 'off'
+      - condition: state
+        entity_id: media_player.bedroom_mini
+        state: 'idle'
+  action:
+    service: media_player.play_media
+    entity_id: media_player.bedroom_mini
+    data:
+#      media_content_id: https://furburger.duckdns.org:8123/local/1sec.mp3
+      media_content_id: http://10.12.27.83:8123/local/1sec.mp3
+      media_content_type: music

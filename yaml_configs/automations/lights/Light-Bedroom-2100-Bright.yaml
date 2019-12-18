@@ -1,0 +1,22 @@
+  alias: Light-Bedroom-2100-Bright
+  trigger:
+    platform: time
+    at: '21:00:00'
+  condition:
+#Only do this if we're not on vacation and Lora is home (because if she's not home, I'm not going to bed at 21:00 usually)
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: 'off'
+      - condition: state
+        entity_id: sensor.garage_car_present
+        state: 'Yes'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Bright"

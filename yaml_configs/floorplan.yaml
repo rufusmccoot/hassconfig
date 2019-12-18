@@ -1,0 +1,253 @@
+      name: Demo Floorplan
+      image: /local/custom_ui/floorplan/floorplan.svg
+      stylesheet: /local/custom_ui/floorplan/floorplan.css
+      
+      # These options are optional
+      # warnings:            # enable warnings (to find out why things might ot be working correctly)
+      # pan_zoom:            # enable experimental panning / zooming
+      hide_app_toolbar:    # hide the application toolbar (when used as a custom panel)
+
+      #last_motion_entity: sensor.template_last_motion
+      #last_motion_class: last-motion
+
+      groups:
+
+        - name: Sensors
+          entities:
+             - sensor.dark_sky_apparent_temperature
+             - sensor.garage_car_present
+#             - sensor.garage_status
+          states:
+            - state: 'Yes'
+              class: 'car-in'
+            - state: 'No'
+              class: 'car-out'
+            - state: 'Unsure when door open'
+              class: 'car-unknown'
+##          text_template: '${entity.state ? entity.state : "unknown"}'
+#          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}°'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 40)
+              return "temp-low";
+            else if (temp < 75)
+              return "temp-medium";
+            else
+              return "temp-high";
+            '
+
+        - name: Lights
+          entities:
+             - light.molly_room
+             - light.office
+             - light.foyerlight_level
+             - light.living_room
+             - light.master_bedroom
+          states:
+            - state: 'on'
+              class: 'light-on'
+            - state: 'off'
+              class: 'light-off'
+          action:
+            service: toggle
+
+#        - name: Switches
+#          entities:
+#             - switch.doorbell
+#          states:
+#            - state: 'on'
+#              class: 'doorbell-on'
+#            - state: 'off'
+#              class: 'doorbell-off'
+
+#        - name: NVR
+#          entities:
+#             - binary_sensor.blue_iris_nvr
+#          text_template: '${(entity.state === "on") ? "online" : "offline"}'
+#          states:
+#            - state: 'off'
+#              class: 'danger-text'
+#            - state: 'on'
+#              class: 'success-text'
+
+#        - name: Alarm Panel
+#          entities:
+#             - alarm_control_panel.alarm
+#          states:
+#            - state: 'armed_away'
+#              class: 'alarm-armed'
+#            - state: 'armed_home'
+#              class: 'alarm-armed'
+#            - state: 'disarmed'
+#              class: 'alarm-disarmed'
+
+#        - name: Binary sensors
+#          entities:
+#            - binary_sensor.front_hallway
+#            - binary_sensor.kitchen
+#            - binary_sensor.master_bedroom
+#            - binary_sensor.theatre_room
+#          states:
+#            - state: 'off'
+#              class: 'info-background'
+#            - state: 'on'
+#              class: 'warning-background'
+#          state_transitions:
+#            - name: On to off
+#              from_state: 'on'
+#              to_state: 'off'
+#              duration: 10
+
+#        - name: Cameras
+#          entities:
+#            - camera.hallway
+#            - camera.driveway
+#            - camera.front_door
+#            - camera.backyard
+#          states:
+#            - state: 'idle'
+#              class: 'camera-idle'
+
+        - name: thermostat_temp
+          entities:
+            - climate.hallway_office
+            - climate.hallway_bedrooms
+#          text_template: '${entity.attributes.current_temperature ? entity.attributes.current_temperature : "undefined"}'
+# The above text_template uses extended attributes from the climate.* objects to get current temperature.
+          states:
+            - state: 'cool'
+              class: 'thermostat-cool'
+            - state: 'heat'
+              class: 'thermostat-heat'
+            - state: 'off'
+              class: 'thermostat-off'
+
+        - name: text_states
+          entities:
+            - sensor.hallway_thermostat_bedrooms_temperature
+            - sensor.hallway_thermostat_bedrooms_target
+            - sensor.hallway_thermostat_bedrooms_humidity
+            - sensor.hallway_thermostat_office_temperature
+            - sensor.hallway_thermostat_office_target
+            - sensor.hallway_thermostat_office_humidity
+            - sensor.dark_sky_daytime_high_temperature_0
+            - sensor.dark_sky_overnight_low_temperature_0
+#            - sensor.last_message
+          text_template: '${entity.state ? entity.state.replace(/\s{2,}/g,"") : "undefined"}°'
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 68)
+              return "temp-low";
+            else if (temp < 75)
+              return "temp-medium";
+            else
+              return "temp-high";
+            '
+
+        - name: text_states
+          entities:
+            - sensor.dark_sky_hourly_summary
+            - sensor.dark_sky_daily_summary
+
+        - name: text_states_humid
+          entities:
+            - sensor.hallway_thermostat_bedrooms_humidity
+            - sensor.hallway_thermostat_office_humidity
+
+        - name: text_states_date
+          entities:
+            - sensor.date__time
+
+        - name: Switch
+          entities:
+            - switch.frontlights_switch
+          states:
+            - state: 'on'
+              class: 'light-on'
+            - state: 'off'
+              class: 'light-off'
+          action:
+            service: toggle
+
+        - name: Media Players
+          entities:
+            - media_player.lazy_beam
+            - media_player.google_homie
+            - media_player.sleepy_beam
+            - media_player.house_speakers
+            - media_player.gym_halpert
+          states:
+            - state: 'off'
+              class: 'media-off'
+            - state: 'idle'
+              class: 'media-off'
+            - state: 'paused'
+              class: 'media-off'
+            - state: 'playing'
+              class: 'media-on'
+
+        - name: Covers
+          entities:
+             - cover.garage_door
+#             - group.garage
+          states:
+            - state: 'open'
+              class: 'garage-open'
+            - state: 'closed'
+              class: 'garage-closed'
+
+        - name: Device Trackers
+          entities:
+             - device_tracker.mosquitto_steve
+          states:
+            - state: 'Home'
+              class: 'mqtthome'
+            - state: 'not_home'
+              class: 'mqttaway'
+            - state: 'Work'
+              class: 'mqttaway'
+######################################################################
+        # DATE & TIME & WEATHER #
+        - name: Date
+          entities:
+            - sensor.floorplan_date
+          text_template: '${entity.state ? entity.state : "undefined"}'
+          class_template: 'return "static-text";'
+
+        - name: Time
+          entities:
+            - sensor.floorplan_time
+          text_template: '${entity.state ? entity.state : "undefined"}'
+          class_template: 'return "static-text";'
+
+        - name: Dark Sky Sensors
+          entities:
+            - sensor.dark_sky_minutely_summary
+          image_template: '
+            var imageName = "";
+            switch (entity.attributes.entity_picture) {
+              case "/static/images/darksky/weather-sunny.svg":
+                imageName = "sunny-1";
+                break;
+              case "/static/images/darksky/weather-night.svg":
+                imageName = "night-1";
+                break;
+              case "/static/images/darksky/weather-partlycloudy.svg":
+                imageName = "partlycloudy-day-1";
+                break;
+              case "/static/images/darksky/weather-cloudy.svg":
+                imageName = "partlycloudy-night-1";
+                break;
+              case "/static/images/darksky/weather-cloudy.svg":
+                imageName = "cloudy-day-1";
+                break;
+              case "/static/images/darksky/weather-pouring.svg":
+                imageName = "thunder";
+                break;
+              case "/static/images/darksky/weather-snowy.svg":
+                imageName = "snowy-day-1";
+                break;
+            }
+            return "/local/custom_ui/floorplan/images/weather/" + imageName + ".svg";
+            '

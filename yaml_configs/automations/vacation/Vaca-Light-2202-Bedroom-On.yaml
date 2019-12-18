@@ -1,0 +1,18 @@
+  alias: Vaca-Light-2202-Bedroom-On
+#  initial_state: 'off'
+  trigger:
+    platform: time
+    at: '22:02:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master"
+        scene_name: "Bright"
+

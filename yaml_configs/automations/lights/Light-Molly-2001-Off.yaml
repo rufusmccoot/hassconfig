@@ -1,0 +1,8 @@
+  alias: Light-Molly-2001-Off
+  trigger:
+    platform: time
+    at: '20:27:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.molly

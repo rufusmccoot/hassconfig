@@ -1,0 +1,7 @@
+  alias: Weather Notification On UI On Weather Alert
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: sensor.nws_alert_count
+  action:
+    service: script.nws_popup_on_wx_alert

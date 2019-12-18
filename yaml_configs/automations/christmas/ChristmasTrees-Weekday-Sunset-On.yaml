@@ -1,0 +1,23 @@
+  alias: 'ChristmasTrees-Sunset-On'
+#  initial_state: 'off'
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+          - sat
+      - condition: state
+        entity_id: input_boolean.holiday_mode
+        state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: group.christmas_outlets

@@ -1,0 +1,12 @@
+- name: Home
+  latitude: !secret latitude_loc_home
+  longitude: !secret longitude_loc_home
+  radius: 150
+  icon: mdi:home-variant
+
+- name: Work
+  latitude: !secret latitude_loc_work
+  longitude: !secret longitude_loc_work
+  radius: 300
+  icon: mdi:domain
+ 

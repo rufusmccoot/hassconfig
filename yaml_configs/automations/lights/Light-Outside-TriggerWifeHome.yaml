@@ -1,0 +1,18 @@
+  alias: Light-Outside-TriggerWifeHome
+  trigger:
+    platform: state
+    entity_id: sensor.garage_car_present
+    to: 'Yes'
+    for:
+      minutes: 2
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        before: '06:00:00'
+      - condition: time
+        after: '22:00:00'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.frontlights_switch

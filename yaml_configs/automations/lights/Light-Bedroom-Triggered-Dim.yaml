@@ -1,0 +1,19 @@
+  alias: Light-Bedroom-Triggered-Dim
+  trigger:
+    platform: state
+    entity_id: media_player.sleepy_beam
+    to: 'playing'
+#    from: 'idle'
+  condition:
+    condition: state
+    entity_id: light.bedroom
+    state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Dimmed"
+

@@ -1,0 +1,7 @@
+  alias: Light-Nightlight-Sunrise-Off
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: switch.turn_off
+      entity_id: switch.61364003dc4f22f144ae

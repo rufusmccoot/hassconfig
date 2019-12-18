@@ -1,0 +1,10 @@
+  alias: Light-Outside-Sunset-On
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -3
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.frontlights_switch

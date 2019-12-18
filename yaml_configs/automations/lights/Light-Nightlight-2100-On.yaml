@@ -1,0 +1,7 @@
+  alias: Light-Nightlight-2100-On
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.61364003dc4f22f144ae

@@ -1,0 +1,28 @@
+#automation Doorbell-Triggered-Alert:
+  alias: Doorbell Triggered
+  trigger:
+    platform: state
+    entity_id: binary_sensor.doorbell_sensor
+    to: 'off'
+  action:
+    - service: media_player.play_media
+      entity_id:
+        - media_player.google_homie
+        - media_player.basement_mini
+        - media_player.bedroom_mini
+      data:
+#        media_content_id: https://furburger.duckdns.org:8123/local/doorbell.mp3
+        media_content_id: http://10.12.27.83:8123/local/doorbell.mp3
+#        media_content_id: https://www.soundjay.com/door/doorbell-1.mp3
+        media_content_type: music
+    - service: notify.join_endpoints
+      data:
+        title: "Home Assistant"
+        message: "Doorbell rang"
+        data: {"smallicon":"https://i.imgur.com/G6ekKZI.png","icon":"https://goo.gl/xeetdy"}
+#    - service: notify.pushbullet_endpoints
+#      data:
+#        title: "Home Assistant"
+#        message: "Doorbell rang"
+#        data: 
+#          url: "https://alerts.weather.gov/cap/wwaatmget.php?x=IAC113&y=1"

@@ -1,0 +1,61 @@
+lights:
+  name: Lights by Room
+  entities:
+    - light.molly
+    - input_number.mollyroom_brightness
+    - light.garage
+    - input_number.office_brightness
+    - light.living_room
+    - input_number.livingroom_brightness
+    - light.master_bedroom
+    - input_number.master_brightness
+    - switch.frontlights_switch
+    - light.foyerlight_level
+#    - group.christmas_outlets
+
+thermostat:
+  name: Nest
+  entities:
+    - climate.hallway_bedrooms
+    - climate.hallway_office
+    - binary_sensor.laundry_room_nest_protect_online
+#    - sensor.laundry_room_nest_protect_battery_health
+#    - sensor.laundry_room_nest_protect_smoke_status
+#    - sensor.laundry_room_nest_protect_co_status
+    - binary_sensor.basement_nest_protect_online
+#    - sensor.basement_nest_protect_battery_health
+#    - sensor.basement_nest_protect_smoke_status
+#    - sensor.basement_nest_protect_co_status
+
+weblinks:
+  name: Weblinks
+  entities:
+    - weblink.rhomeassistant
+    - weblink.homeassistantio
+    - weblink.hass_forums
+    - weblink.hass_discord
+    - weblink.remote_control
+    - weblink.myfitnesspal
+
+garage:
+  name: Garage
+  entities:
+    - cover.garage_door
+    - sensor.garage_status
+    - sensor.garage_car_present
+
+device_trackers:
+  name: Device Trackers
+  entities:
+    - device_tracker.mosquitto_steve
+
+#Can now leave these on year round
+christmas_outlets:
+  name: Christmas Outlets
+  entities:
+#513 is outlet 2
+    - switch.61364003dc4f22f0d513
+#4c6 is outlet 1
+    - switch.68102802dc4f22f104c6
+#c33 is outlet 3, but I repurposed that to the salt lamp in master bedroom 10/22/2019, so leave it commented out of the group
+#    - switch.68102802dc4f22f09c33
