@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-# hassconfig
-=======
-<<<<<<< HEAD
 <h1>Home Assistant</h1>
 These are my own notes on using Github because sometimes I break it and forget how to fix it.
 <h3>When making changes on \\hassio:</h3>
@@ -38,7 +34,3 @@ Note: backupHASSIOtogitAndgoogledrive.bat does all of the above
 <li>So anything at the config root is not publically posted</li>
 <li>The whole config root tree gets saved to Google Drive</li>
 </ol>
-=======
-# hassconfig
->>>>>>> refs/remotes/origin/master
->>>>>>> Stashed changes
