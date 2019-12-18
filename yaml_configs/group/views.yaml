@@ -1,0 +1,37 @@
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - persistent_notification.update_available
+    - group.lights
+    - group.garage
+    - group.thermostat
+#    - group.switch
+    - group.device_trackers
+#    - group.irrigation
+
+media:
+  view: yes
+  icon: mdi:cast
+  entities:
+    - group.media_players
+
+weather:
+  view: yes
+  icon: mdi:weather-partlycloudy
+  entities:
+    - group.weather
+    - camera.weather_radar
+
+watering:
+  view: yes
+  icon: mdi:water-pump
+  entities:
+    - group.irrigation
+
+info:
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.all_automations
+    - group.weblinks

@@ -1,0 +1,45 @@
+    sensor.dark_sky_apparent_temperature:
+      friendly_name: Apparent Temp
+    sensor.dark_sky_daily_high_temperature:
+      friendly_name: High
+    sensor.dark_sky_daily_low_temperature:
+      friendly_name: Low
+    sensor.dark_sky_daily_summary:
+      friendly_name: 7 day Forecast
+    sensor.dark_sky_dew_point:
+      friendly_name: Dew Point
+      icon: mdi:water
+    sensor.dark_sky_hourly_summary:
+      friendly_name: 24 hr Forecast
+    sensor.dark_sky_humidity:
+      friendly_name: Humidity
+    sensor.dark_sky_minutely_summary:
+      friendly_name: Current
+    sensor.dark_sky_temperature:
+      friendly_name: Temp
+
+    binary_sensor.laundry_room_nest_protect_online:
+      friendly_name: Nest Protect - Hallway
+      icon: mdi:lan-connect
+    sensor.laundry_room_nest_protect_battery_health:
+      friendly_name: Battery
+      icon: mdi:battery-plus
+    sensor.laundry_room_nest_protect_smoke_status:
+      friendly_name: Smoke
+      icon: mdi:fire
+    sensor.laundry_room_nest_protect_co_status:
+      friendly_name: Carbon Monoxide
+      icon: mdi:weather-windy
+
+    binary_sensor.basement_nest_protect_online:
+      friendly_name: Nest Protect - Basement
+      icon: mdi:lan-connect
+    sensor.basement_nest_protect_battery_health:
+      friendly_name: Battery
+      icon: mdi:battery-plus
+    sensor.basement_nest_protect_smoke_status:
+      friendly_name: Smoke
+      icon: mdi:fire
+    sensor.basement_nest_protect_co_status:
+      friendly_name: Carbon Monoxide
+      icon: mdi:weather-windy

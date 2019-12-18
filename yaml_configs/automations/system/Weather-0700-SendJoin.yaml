@@ -1,0 +1,14 @@
+  alias: Weather-0700-SendJoin
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '07:00:00'
+  action:
+    service: notify.join_endpoints
+    data:
+      title: "Daily Weather 7a"
+      message: "Today: {{ states('sensor.dark_sky_hourly_summary') }} Hi: {{ states('sensor.dark_sky_daytime_high_apparent_temperature_0d') | round(0) }} Lo: {{ states('sensor.dark_sky_overnight_low_apparent_temperature_0d') | round(0) }}
+
+
+Outlook: {{ states('sensor.dark_sky_daily_summary') }}"
+      data: {"smallicon":"https://i.imgur.com/G6ekKZI.png","icon":"https://goo.gl/xeetdy"}

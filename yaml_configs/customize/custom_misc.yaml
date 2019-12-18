@@ -1,0 +1,31 @@
+    binary_sensor.hallway_nest_protect_online:
+      icon: mdi:smoke-detector
+    binary_sensor.basement_nest_protect_online:
+      icon: mdi:smoke-detector
+    group.all_automations:
+      friendly_name: All Automations
+      hidden: false
+    switch.rmbridgestatus:
+      icon: mdi:lan-connect
+    switch.zone_zone_1:
+      icon: mdi:water-pump
+    switch.zone_zone_2:
+      icon: mdi:water-pump
+    switch.zone_zone_3:
+      icon: mdi:water-pump
+    switch.zone_zone_4:
+      icon: mdi:water-pump
+    switch.zone_zone_5:
+      icon: mdi:water-pump
+    switch.molly_fan:
+      icon: mdi:fan
+    switch.master_fan:
+      icon: mdi:fan
+    input_boolean.holiday_mode:
+      icon: mdi:pine-tree
+    input_boolean.vacation_mode:
+      icon: mdi:airplane
+    input_boolean.tea_time:
+      icon: mdi:tea
+    input_boolean.kill_fans:
+      icon: mdi:fan-off

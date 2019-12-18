@@ -1,0 +1,9 @@
+#Customize icons in yaml_configs\customize\custom_misc.yaml
+  vacation_mode:
+    name: Vacation Mode
+  holiday_mode:
+    name: Holiday Mode
+  tea_time:
+    name: Tea Time
+  kill_fans:
+    name: Kill Fans in Morning
