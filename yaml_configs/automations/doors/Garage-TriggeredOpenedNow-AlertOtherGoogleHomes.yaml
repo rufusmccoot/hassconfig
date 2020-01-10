@@ -20,6 +20,5 @@
         - media_player.google_homie
         - media_player.basement_mini
       data:
-#        media_content_id: https://furburger.duckdns.org:8123/local/garageopen.wav
         media_content_id: http://10.12.27.83:8123/local/garageopen.wav
         media_content_type: music

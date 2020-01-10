@@ -2,36 +2,25 @@
       hidden: false
       friendly_name: Molly
       icon: mdi:hotel
-    input_number.mollyroom_brightness:
+
+    light.greg:
       hidden: false
+      friendly_name: Greg
       icon: mdi:hotel
-      friendly_name: " "
 
     light.garage_room:
       hidden: false
       icon: mdi:garage
-    input_number.garage:
-      hidden: false
-      icon: mdi:garage
-      friendly_name: " "
 
     light.living_room:
       hidden: false
       friendly_name: Living
       icon: mdi:sofa
-    input_number.livingroom_brightness:
-      hidden: false
-      icon: mdi:sofa
-      friendly_name: " "
 
     light.master_bedroom:
       hidden: false
-      icon: mdi:hotel
+      icon: mdi:bed-king
       friendly_name: Master
-    input_number.master_brightness:
-      hidden: false
-      icon: mdi:hotel
-      friendly_name: " "
 
     switch.frontlights_switch:
       hidden: false
