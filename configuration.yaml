@@ -244,3 +244,7 @@ binary_sensor:
 #    name: LateNight
 #    after: '22:00'
 #    before: '06:00'
+#plex:
+#  token: !secret plex_token
+#  host: 10.12.27.83
+#  port: 32400
