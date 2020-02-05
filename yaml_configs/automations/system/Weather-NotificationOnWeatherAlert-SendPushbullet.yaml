@@ -1,5 +1,4 @@
   alias: Weather Notification On Weather Alert Send Pushbullet
-  hide_entity: true
   trigger:
     platform: state
     entity_id: sensor.nws_alert_count

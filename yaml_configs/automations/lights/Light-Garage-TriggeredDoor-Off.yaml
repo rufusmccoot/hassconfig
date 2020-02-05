@@ -1,6 +1,5 @@
 #When the big garage door opens, shut off the bathroom hallway light because we just went out to the garage to leave.
   alias: Light-Garage-TriggeredDoor-Off
-  hide_entity: true
   trigger:
     platform: state
     entity_id: cover.garage_door

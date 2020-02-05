@@ -1,5 +1,4 @@
   alias: GoogleHome-0400-VolumeQuiet
-  hide_entity: true
   trigger:
     platform: time
     at: '04:00:00'

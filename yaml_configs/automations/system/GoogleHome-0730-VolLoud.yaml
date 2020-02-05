@@ -1,5 +1,4 @@
   alias: GoogleHome-0730-VolumeLoud
-  hide_entity: true
   trigger:
     platform: time
     at: '07:30:00'

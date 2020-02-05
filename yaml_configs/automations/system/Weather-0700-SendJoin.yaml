@@ -1,5 +1,4 @@
   alias: Weather-0700-SendJoin
-  hide_entity: true
   trigger:
     platform: time
     at: '07:00:00'

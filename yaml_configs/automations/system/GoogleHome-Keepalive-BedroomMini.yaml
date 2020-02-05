@@ -1,5 +1,4 @@
   alias: GoogleHome-Keepalive-BedroomMini
-  hide_entity: true
   trigger:
     platform: time_pattern
     minutes: '/2'

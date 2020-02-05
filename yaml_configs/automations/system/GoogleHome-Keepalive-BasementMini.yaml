@@ -1,5 +1,4 @@
   alias: GoogleHome-Keepalive-BasementMini
-  hide_entity: true
   trigger:
     platform: time_pattern
     minutes: '/2'

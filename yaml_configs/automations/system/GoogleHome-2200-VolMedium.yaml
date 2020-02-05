@@ -1,5 +1,4 @@
   alias: GoogleHome-2200-VolumeMedium
-  hide_entity: true
   trigger:
     platform: time
     at: '22:00:00'

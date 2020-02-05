@@ -214,10 +214,10 @@ weather:
     station: KCID
     mode: hourly
 
-rainmachine:
-  controllers:
-    - ip_address: 10.10.10.136
-      password: !secret rainmachine
+#rainmachine:
+#  controllers:
+#    - ip_address: 10.10.10.136
+#      password: !secret rainmachine
 
 influxdb:
   host: !secret influx_host
@@ -248,3 +248,5 @@ binary_sensor:
 #  token: !secret plex_token
 #  host: 10.12.27.83
 #  port: 32400
+
+#zha_map:
