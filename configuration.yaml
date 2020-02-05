@@ -65,7 +65,7 @@ sun:
 group: !include_dir_merge_named yaml_configs/group
 automation: !include_dir_list yaml_configs/automations
 #media_player: !include yaml_configs/includes/media_players.yaml
-weblink: !include yaml_configs/includes/weblink.yaml
+#weblink: !include yaml_configs/includes/weblink.yaml
 sensor: !include yaml_configs/includes/sensors.yaml
 zone: !include yaml_configs/includes/zones.yaml
 input_boolean: !include yaml_configs/includes/input_booleans.yaml
