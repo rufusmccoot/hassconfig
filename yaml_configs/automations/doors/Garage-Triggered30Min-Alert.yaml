@@ -70,9 +70,8 @@
 #        title: "Home Assistant"
 #        message: "Garage door has been open for at least 30 minutes"
 #        data: {"smallicon":"https://i.imgur.com/G6ekKZI.png","icon":"https://goo.gl/xeetdy"}
-    - service: notify.pushbullet_endpoints
+#    - service: notify.pushbullet_endpoints
+    - service: notify.mobile_app_lgus991_steve
       data:
         title: "Home Assistant"
         message: "Garage door has been open for at least 30 minutes"
-        data: 
-          url: "https://alerts.weather.gov/cap/wwaatmget.php?x=IAC113&y=1"

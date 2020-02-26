@@ -27,6 +27,7 @@ http:
   base_url: !secret base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
+  server_port: 443
 
 # Checks for available updates
 updater:
@@ -34,7 +35,8 @@ updater:
  include_used_components: true
 
 # Discover some devices automatically
-#discovery:
+discovery:
+mobile_app:
 
 # Enables support for tracking state changes over time
 history:
@@ -142,12 +144,12 @@ cover:
         device_key: !secret open_garage
         name:  Garage Door
 
-panel_custom: 
-  - name: floorplan
-    sidebar_title: Floorplan
-    sidebar_icon: mdi:home
-    url_path: floorplan
-    config: !include yaml_configs/floorplan.yaml
+#panel_custom: 
+#  - name: floorplan
+#    sidebar_title: Floorplan
+#    sidebar_icon: mdi:home
+#    url_path: floorplan
+#    config: !include yaml_configs/floorplan.yaml
 
 panel_iframe:
   nws_hwo:
@@ -166,15 +168,15 @@ zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
 
-joaoapps_join:
-  - api_key: !secret join_api_key
-    device_id: group.all
+#joaoapps_join:
+#  - api_key: !secret join_api_key
+#    device_id: group.all
 
 notify:
-  - platform: joaoapps_join
-    api_key: !secret join_api_key
-    device_id: group.all
-    name: Join Endpoints
+#  - platform: joaoapps_join
+#    api_key: !secret join_api_key
+#    device_id: group.all
+#    name: Join Endpoints
   - name: Google Assistant
     platform: rest
     resource: http://10.10.10.129:5000/broadcast_message

@@ -14,14 +14,9 @@
         media_content_id: http://10.12.27.83:8123/local/doorbell.mp3
 #        media_content_id: https://www.soundjay.com/door/doorbell-1.mp3
         media_content_type: music
-    - service: notify.join_endpoints
+#    - service: notify.join_endpoints
+    - service: notify.mobile_app_lgus991_steve
       data:
         title: "Home Assistant"
         message: "Doorbell rang"
-        data: {"smallicon":"https://i.imgur.com/G6ekKZI.png","icon":"https://goo.gl/xeetdy"}
-#    - service: notify.pushbullet_endpoints
-#      data:
-#        title: "Home Assistant"
-#        message: "Doorbell rang"
-#        data: 
-#          url: "https://alerts.weather.gov/cap/wwaatmget.php?x=IAC113&y=1"
+#        data: {"smallicon":"https://i.imgur.com/G6ekKZI.png","icon":"https://goo.gl/xeetdy"}

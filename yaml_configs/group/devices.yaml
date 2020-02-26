@@ -27,15 +27,15 @@ thermostat:
 #    - sensor.basement_nest_protect_smoke_status
 #    - sensor.basement_nest_protect_co_status
 
-weblinks:
-  name: Weblinks
-  entities:
-    - weblink.rhomeassistant
-    - weblink.homeassistantio
-    - weblink.hass_forums
-    - weblink.hass_discord
-    - weblink.remote_control
-    - weblink.myfitnesspal
+#weblinks:
+#  name: Weblinks
+#  entities:
+#    - weblink.rhomeassistant
+#    - weblink.homeassistantio
+#    - weblink.hass_forums
+#    - weblink.hass_discord
+#    - weblink.remote_control
+#    - weblink.myfitnesspal
 
 garage:
   name: Garage
@@ -44,10 +44,10 @@ garage:
     - sensor.garage_status
     - sensor.garage_car_present
 
-device_trackers:
-  name: Device Trackers
-  entities:
-    - device_tracker.mosquitto_steve
+#device_trackers:
+#  name: Device Trackers
+#  entities:
+#    - device_tracker.mosquitto_steve
 
 #Can now leave these on year round
 christmas_outlets:

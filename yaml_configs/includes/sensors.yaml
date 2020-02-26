@@ -96,7 +96,7 @@
       value_template: '{% if states.cover.garage_door %}
           {% if states.cover.garage_door.state == "open" %}
             Unsure when door open
-          {% elif ((states.cover.garage_door.attributes["distance_sensor"] > 90) and (states.cover.garage_door.attributes["distance_sensor"] < 210)) %}
+          {% elif ((states.cover.garage_door.attributes["distance_sensor"] > 50) and (states.cover.garage_door.attributes["distance_sensor"] < 210)) %}
             Yes
           {% else %}
             No
@@ -107,7 +107,7 @@
       icon_template: '{% if states.cover.garage_door %}
           {% if states.cover.garage_door.state == "open" %}
             mdi:help-box
-          {% elif ((states.cover.garage_door.attributes["distance_sensor"] > 90) and (states.cover.garage_door.attributes["distance_sensor"] < 210)) %}
+          {% elif ((states.cover.garage_door.attributes["distance_sensor"] > 50) and (states.cover.garage_door.attributes["distance_sensor"] < 210)) %}
             mdi:car
           {% else %}
             mdi:car
