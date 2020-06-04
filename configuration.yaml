@@ -24,7 +24,7 @@ system_health:
 
 # Password protect the API
 http:
-  base_url: !secret base_url
+#  base_url: !secret base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   server_port: 443
@@ -156,10 +156,6 @@ panel_iframe:
     title: 'NWS HWO'
     url: 'https://forecast.weather.gov/showsigwx.php?warnzone=IAZ052&warncounty=IAC113&firewxzone=IAZ052&local_place1=Cedar%20Rapids%20IA&product1=Hazardous+Weather+Outlook'
     icon: mdi:weather-lightning
-  grafana:
-    title: Grafana
-    icon: mdi:chart-timeline
-    url: http://10.10.10.129:3000
 
 zwave:
   usb_path: /dev/ttyUSB0
@@ -208,8 +204,8 @@ device_tracker:
     track_new_devices: True
     consider_home: 600
     hosts:
-      StevePhone: 10.10.10.101
-      LoraPhone: 10.10.10.146
+      stevephone: 10.10.10.101
+      loraphone: 10.10.10.146
 
 timer:
   tea_time:

@@ -1,7 +1,7 @@
   alias: Fan-Molly-0730-Off
   trigger:
     platform: time
-    at: '07:30:00'
+    at: '08:00:00'
   condition:
     condition: state
     entity_id: input_boolean.kill_fans

@@ -1,5 +1,4 @@
   alias: Light-Foyer-Triggered-Off
-  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.centralite_3320l_0bbc6789_1_1280

@@ -1,0 +1,22 @@
+  alias: 'Weather Notification to Shut AC'
+  trigger:
+    platform: time_pattern
+    minutes: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.hallway_thermostat_office_operation_mode
+        state: 'cool'
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_dew_point
+        below: 64
+      - condition: numeric_state
+        entity_id: sensor.dark_sky_apparent_temperature
+        below: 72
+  action:
+#    service: notify.join_endpoints
+    service: notify.mobile_app_lgus991
+    data:
+      title: "Open a window!"
+      message: "It feels like {{ states('sensor.dark_sky_apparent_temperature')|round(0) }}F with a dewpoint of {{ states('sensor.dark_sky_dew_point')}} but the AC is on."

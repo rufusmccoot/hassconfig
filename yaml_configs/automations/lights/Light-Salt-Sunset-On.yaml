@@ -2,7 +2,7 @@
   trigger:
     platform: sun
     event: sunset
-    offset: '+02:00:00'
+    offset: '+01:00:00'
   action:
     - service: switch.turn_on
       data:

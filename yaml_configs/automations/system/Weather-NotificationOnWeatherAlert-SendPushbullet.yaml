@@ -7,7 +7,7 @@
     value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
   action:
 #    service: notify.pushbullet_endpoints
-    service: notify.mobile_app_lgus991_steve
+    service: notify.mobile_app_lgus991
     data:
       title: "{{ states.sensor.nws_alert_event.state }}"
       message: "{{ state_attr('sensor.nws_alert_event', 'features')[0].properties.description }}"
