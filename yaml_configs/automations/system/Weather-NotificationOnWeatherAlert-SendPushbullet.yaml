@@ -3,8 +3,12 @@
     platform: state
     entity_id: sensor.nws_alert_count
   condition:
-    condition: template
-    value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
+      - condition: template
+        value_template: '{{ states.sensor.nws_alert_event.state != "Flood Warning"}}'
   action:
 #    service: notify.pushbullet_endpoints
     service: notify.mobile_app_lgus991
