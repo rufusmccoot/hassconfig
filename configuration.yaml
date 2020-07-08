@@ -180,11 +180,11 @@ notify:
     api_key: !secret pushbullet_api_key
     name: Pushbullet Endpoints
 
-tuya:
-  username: !secret tuya_user
-  password: !secret tuya_pass
-  country_code: 1
-  platform: 'smart_life'
+#tuya:
+#  username: !secret tuya_user
+#  password: !secret tuya_pass
+#  country_code: 1
+#  platform: 'smart_life'
 
 weather:
   - platform: darksky

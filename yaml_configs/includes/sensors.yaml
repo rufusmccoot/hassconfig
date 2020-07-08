@@ -172,3 +172,101 @@
     User-Agent: Homeassistant
     Accept: application/geo+json
   scan_interval: 60
+###Today cooling and heating stats
+- platform: history_stats
+  name: hallway_thermostat_office_history_today_cool
+  entity_id: sensor.hallway_thermostat_office_hvac_state
+  state: 'cool'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: hallway_thermostat_office_history_today_heat
+  entity_id: sensor.hallway_thermostat_office_hvac_state
+  state: 'heat'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: hallway_thermostat_bedrooms_history_today_cool
+  entity_id: sensor.hallway_thermostat_bedrooms_hvac_state
+  state: 'cool'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+
+- platform: history_stats
+  name: hallway_thermostat_bedrooms_history_today_heat
+  entity_id: sensor.hallway_thermostat_bedrooms_hvac_state
+  state: 'heat'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'
+###Yesterday cooling and heating stats
+- platform: history_stats
+  name: hallway_thermostat_office_history_yesterday_cool
+  entity_id: sensor.hallway_thermostat_office_hvac_state
+  state: 'cool'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration:
+    hours: 24
+
+- platform: history_stats
+  name: hallway_thermostat_office_history_yesterday_heat
+  entity_id: sensor.hallway_thermostat_office_hvac_state
+  state: 'heat'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration:
+    hours: 24
+
+- platform: history_stats
+  name: hallway_thermostat_bedrooms_history_yesterday_cool
+  entity_id: sensor.hallway_thermostat_bedrooms_hvac_state
+  state: 'cool'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration:
+    hours: 24
+
+- platform: history_stats
+  name: hallway_thermostat_bedrooms_history_yesterday_heat
+  entity_id: sensor.hallway_thermostat_bedrooms_hvac_state
+  state: 'heat'
+  type: time
+  end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  duration:
+    hours: 24
+###Add HVAC histories together so I can get either Heat or Cool without changing each season
+- platform: template
+  sensors:
+        hallway_thermostat_bedrooms_history_today_aggregate:
+          friendly_name: "HVAC Runtime Today Bedrooms"
+          unit_of_measurement: 'h'
+          value_template: "{{ (states.sensor.hallway_thermostat_bedrooms_history_today_cool.state | float + states.sensor.hallway_thermostat_bedrooms_history_today_heat.state | float) }}"
+          attribute_templates:
+            value: "{{ (60 * (states.sensor.hallway_thermostat_bedrooms_history_today_cool.state | float + states.sensor.hallway_thermostat_bedrooms_history_today_heat.state | float)) | int }}m"
+    
+        hallway_thermostat_bedrooms_history_yesterday_aggregate:
+          friendly_name: "HVAC Runtime Yesterday Bedrooms"
+          unit_of_measurement: 'h'
+          value_template: "{{ (states.sensor.hallway_thermostat_bedrooms_history_yesterday_cool.state | float + states.sensor.hallway_thermostat_bedrooms_history_yesterday_heat.state | float) }}"
+          attribute_templates:
+            value: "{{ (60 * (states.sensor.hallway_thermostat_bedrooms_history_yesterday_cool.state | float + states.sensor.hallway_thermostat_bedrooms_history_yesterday_heat.state | float)) | int }}m"
+
+        hallway_thermostat_office_history_today_aggregate:
+          friendly_name: "HVAC Runtime Today Office"
+          unit_of_measurement: 'h'
+          value_template: "{{ (states.sensor.hallway_thermostat_office_history_today_cool.state | float + states.sensor.hallway_thermostat_office_history_today_heat.state | float) }}"
+          attribute_templates:
+            value: "{{ (60 * (states.sensor.hallway_thermostat_office_history_today_cool.state | float + states.sensor.hallway_thermostat_office_history_today_heat.state | float)) | int }}m"
+    
+        hallway_thermostat_office_history_yesterday_aggregate:
+          friendly_name: "HVAC Runtime Yesterday Office"
+          unit_of_measurement: 'h'
+          value_template: "{{ (states.sensor.hallway_thermostat_office_history_yesterday_cool.state | float + states.sensor.hallway_thermostat_office_history_yesterday_heat.state | float) }}"
+          attribute_templates:
+            value: "{{ (60 * (states.sensor.hallway_thermostat_office_history_yesterday_cool.state | float + states.sensor.hallway_thermostat_office_history_yesterday_heat.state | float)) | int }}m"
