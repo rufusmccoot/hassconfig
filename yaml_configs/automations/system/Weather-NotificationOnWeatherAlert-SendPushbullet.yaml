@@ -9,6 +9,9 @@
         value_template: '{{states.sensor.nws_alert_count.state | int > 0}}'
       - condition: template
         value_template: '{{ states.sensor.nws_alert_event.state != "Flood Warning"}}'
+      - condition: template # only notify once every 15 min at most
+        value_template: "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.weather_notification_on_weather_alert_send_pushbullet', 'last_triggered')) |int(0) ) > 900 }}"
+
   action:
 #    service: notify.pushbullet_endpoints
     service: notify.mobile_app_lgus991
