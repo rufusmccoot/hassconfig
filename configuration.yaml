@@ -81,9 +81,9 @@ nest:
 ifttt:
   key: !secret ifttt_key
 
-hue:
-  bridges:
-    - host: 10.10.10.106
+#hue:
+#  bridges:
+#    - host: 10.10.10.106
 
 switch:
   - platform: broadlink
@@ -156,13 +156,13 @@ panel_iframe:
     title: 'NWS HWO'
     url: 'https://forecast.weather.gov/showsigwx.php?warnzone=IAZ052&warncounty=IAC113&firewxzone=IAZ052&local_place1=Cedar%20Rapids%20IA&product1=Hazardous+Weather+Outlook'
     icon: mdi:weather-lightning
-
-zwave:
-  usb_path: /dev/ttyUSB0
-  
-zha:
-  usb_path: /dev/ttyUSB1
-  database_path: /config/zigbee.db
+#
+#zwave:
+#  usb_path: /dev/ttyUSB0
+#  
+#zha:
+#  usb_path: /dev/ttyUSB1
+#  database_path: /config/zigbee.db
 
 #joaoapps_join:
 #  - api_key: !secret join_api_key
@@ -189,10 +189,10 @@ notify:
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
-  - platform: nws
-    api_key: !secret nws_api_key
-    station: KCID
-    mode: hourly
+#  - platform: nws
+#    api_key: !secret nws_api_key
+#    station: KCID
+#    mode: hourly
 
 influxdb:
   host: !secret influx_host

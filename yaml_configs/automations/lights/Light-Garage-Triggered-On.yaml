@@ -1,7 +1,7 @@
   alias: Light-Garage-Triggered-On
   trigger:
     platform: state
-    entity_id: binary_sensor.zha_0f3ae4f9_1_1280
+    entity_id: binary_sensor.doorswing_garage
     to: 'on'
 #  condition:
 ##       Only turn on light if within 30 minutes of sunset or later

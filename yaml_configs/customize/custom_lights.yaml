@@ -1,12 +1,12 @@
     light.molly:
       hidden: false
       friendly_name: Molly
-      icon: mdi:hotel
+      icon: mdi:bed
 
     light.greg:
       hidden: false
       friendly_name: Greg
-      icon: mdi:hotel
+      icon: mdi:bed
 
     light.garage_room:
       hidden: false
